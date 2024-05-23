@@ -6,8 +6,8 @@ import * as bcrypt from 'bcrypt';
 export class AuthService {
   private users = [
     {
-      phone: '597333307',
-      password: bcrypt.hashSync('12345678', 10),
+      phone: 'smartflow',
+      password: bcrypt.hashSync('87654321', 10),
     },
   ];
 
