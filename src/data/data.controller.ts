@@ -1,15 +1,18 @@
-// src/data/data.controller.ts
-import { Controller, Post, Body, UseGuards } from '@nestjs/common';
-import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { Controller, Get, Post, Body } from '@nestjs/common';
 import { DataService } from './data.service';
 
 @Controller('data')
 export class DataController {
   constructor(private readonly dataService: DataService) {}
 
-  @UseGuards(JwtAuthGuard)
+  @Get()
+  getData() {
+    return this.dataService.getData();
+  }
+
   @Post()
-  async receiveData(@Body() dataDto: any) {
-    return this.dataService.processData(dataDto);
+  addData(@Body() newData) {
+    this.dataService.addData(newData);
+    return { message: 'Data received successfully', data: newData };
   }
 }
