@@ -10,7 +10,7 @@ export class AuthService {
   async validateUser(phone: string, password: string): Promise<any> {
     // Simulate user data from a database
     const user = {
-      phone: '597333307',
+      phone: 'wineguard@gmail.com',
       password: await bcrypt.hash('12345678', 10),
     };
 
